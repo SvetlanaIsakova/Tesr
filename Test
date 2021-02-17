@@ -1,0 +1,26 @@
+public int[][] test(int n)
+        {
+            int[] X = new int[n];
+            Random rnd = new Random();
+            for (int i=0;i<n;i++)
+            {
+                int r= rnd.Next();
+                while (X.Contains(r))
+                {
+                    r = rnd.Next();                         
+                }
+                X[i] = r;
+            }
+
+            int[][] numbers = new int[n][];
+            for (int i = 0; i <= n-1; i++)
+            {
+                numbers[i] = new int[X[i]];
+                for (int j=0; j<=X[i]-1;j++)
+                     numbers[i][j]= rnd.Next();
+                Array.Sort(numbers[i]);
+                if (i % 2 != 0)
+                    Array.Reverse(numbers[i]);   
+            }    
+            return numbers;            
+        }
